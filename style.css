@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.form-card {
+    background-color: rgb(205, 205, 205);
+    border: 1px solid black;
+    border-radius: .5rem;
+    width: 250px;
+    height: 250px;
+}
