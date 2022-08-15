@@ -12,6 +12,22 @@ body {
     justify-content: center;
 }
 
+form {
+    transform: scale(1);
+    opacity: 1;
+    transition-property: transform, opacity;
+    transition-duration: .6s;
+    transition-timing-function: linear;
+}
+
+form.hide {
+    transform: scale(0.5);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: .6s;
+    transition-timing-function: linear;
+}
+
 .form-card {
     background-color: rgb(205, 205, 205);
     border: 1px solid black;
@@ -22,6 +38,7 @@ body {
     justify-items: center;
     padding: 1.5rem 0;
     font-size: 1.5rem;
+
 }
 
 .card-title {}
