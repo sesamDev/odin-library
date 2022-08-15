@@ -14,12 +14,17 @@
     <button>Add book</button>
     <form>
         <div class="form-card">
+            <h3 class="card-title">Enter book details</h3>
             <input type="text" name="title" placeholder="Title of book" required>
             <input type="text" name="author" placeholder="Author of book" required>
-            <label for="has-read">Read it?</label>
-            <input type="checkbox" name="has-read" required>
-            <label for="score">Score</label>
-            <input type="number" name="score" min="1" max="10" step="1">
+            <div class="has-read">
+                <label for="has-read">Read it?</label>
+                <input type="checkbox" name="has-read" required>
+            </div>
+            <div class="score">
+                <label for="score">Score</label>
+                <input type="number" name="score" min="1" max="10" step="1">
+            </div>
         </div>
     </form>
 </body>
