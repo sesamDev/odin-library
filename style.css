@@ -4,12 +4,18 @@
 }
 
 body {
-    background-color: aqua;
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
 
 form {
@@ -21,11 +27,14 @@ form {
 }
 
 form.hide {
+    position: relative;
     transform: scale(0.5);
+    pointer-events: none;
     opacity: 0;
-    transition-property: transform, opacity;
+    transition-property: transform, opacity, display;
     transition-duration: .6s;
     transition-timing-function: linear;
+
 }
 
 .form-card {
@@ -65,4 +74,8 @@ input[type=text] {
 input[type=checkbox] {
     height: 1.5rem;
     width: 1.5rem;
+}
+
+.add-book {
+    position: absolute;
 }

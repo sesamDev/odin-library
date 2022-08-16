@@ -1,3 +1,7 @@
+const addBookButton = document.getElementById('addBook');
+const formContainer = document.getElementById('formContainer');
+
+
 let myLibrary = [];
 
 function Book(title, author, hasRead, score) {
@@ -6,6 +10,8 @@ function Book(title, author, hasRead, score) {
     this.hasRead = Boolean(hasRead);
     this.score = score;
 };
+
+
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -16,3 +22,7 @@ function displayBooks() {
         console.log(book);
     });
 }
+
+addBookButton.addEventListener("click", function (e) {
+    formContainer.classList.remove("hide");
+})
