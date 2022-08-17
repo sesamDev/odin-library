@@ -1,6 +1,7 @@
 const addBookButton = document.getElementById('addBook');
 const addToCollectionButton = document.getElementById('formButton');
 const formContainer = document.getElementById('formContainer');
+const viewLibraryButton = document.getElementById('viewLibraryButton');
 
 
 let myLibrary = [];
@@ -23,7 +24,9 @@ function displayBooks() {
         console.log(book);
     });
 }
-
+viewLibraryButton.addEventListener("click", function () {
+    displayBooks();
+})
 addBookButton.addEventListener("click", function () {
     formContainer.classList.remove("hide");
 })

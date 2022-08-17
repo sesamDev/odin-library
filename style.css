@@ -76,6 +76,14 @@ input[type=checkbox] {
     width: 1.5rem;
 }
 
-.add-book {
+.button-container {
     position: absolute;
+}
+
+.add-book,
+.view-library {
+    position: relative;
+    margin: .5rem;
+    height: 2.5rem;
+    width: 8rem;
 }
