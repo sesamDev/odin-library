@@ -16,16 +16,17 @@
     <form class="form-container hide" id="formContainer">
         <div class="form-card">
             <h3 class="card-title">Enter book details</h3>
-            <input type="text" name="title" placeholder="Title of book" required>
-            <input type="text" name="author" placeholder="Author of book" required>
+            <input type="text" name="title" placeholder="Title of book">
+            <input type="text" name="author" placeholder="Author of book">
             <div class="has-read">
                 <label for="has-read">Read it?</label>
-                <input type="checkbox" name="has-read" required>
+                <input type="checkbox" name="has-read">
             </div>
             <div class="score">
                 <label for="score">Score</label>
                 <input type="number" name="score" min="1" max="10" step="1">
             </div>
+            <button type="button" class="form-button" id="formButton">Add to collection</button>
         </div>
     </form>
 </body>
