@@ -21,7 +21,15 @@
     margin-left: 2rem;
 }
 
+.main-content {
+    display: grid;
+    margin: 5rem 1rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+}
+
 .add-book {
+    position: absolute;
     padding: 12px 22px;
     font-size: 24px;
     cursor: pointer;
@@ -44,6 +52,13 @@
     background-color: rgb(220, 220, 220);
     box-shadow: 0 4px #666;
     transform: translateY(2px);
+}
+
+.book-card {
+    background-color: whitesmoke;
+    height: 350px;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: .5rem;
 }
 
 /* body {
