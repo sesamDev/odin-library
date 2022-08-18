@@ -1,18 +1,9 @@
 const addBookButton = document.getElementById('addBook');
 const addToCollectionButton = document.getElementById('formButton');
 const formContainer = document.getElementById('formContainer');
-// const viewLibraryButton = document.getElementById('viewLibraryButton');
-const bookCards = document.querySelectorAll('[data-book-card]');
-const bookCardTemplate = document.getElementById('bookCardTemplate');
+//const bookCards = document.querySelectorAll('[data-book-card]');
 
-let myLibrary = [
-    {
-        "title": "The hobbit",
-        "author": "JRR Tolken",
-        "hasRead": false,
-        "score": 10
-    },
-];
+let myLibrary = [];
 
 function Book(title, author, hasRead, score) {
     this.title = title;
@@ -21,17 +12,9 @@ function Book(title, author, hasRead, score) {
     this.score = score;
 };
 
-
-
 function addBookToLibrary(book) {
     myLibrary.push(book);
 };
-
-function displayBooks() {
-    for (let i = 0; i < myLibrary.length; i++) {
-        createBookCard(myLibrary[i], i);
-    }
-}
 
 function populateBookCard(index) {
     let newCardText = document.querySelector(`[data-book='${index}']`);
@@ -51,7 +34,6 @@ function createnewCardText(content) {
 //     displayBooks();
 // })
 addBookButton.addEventListener("click", function () {
-    console.log('click');
     formContainer.classList.remove("hide");
 })
 
@@ -101,8 +83,15 @@ function createCard(index) {
     const removeButton = document.createElement('button')
     readButton.innerText = "Read";
     removeButton.innerText = "Remove";
+    removeButton.setAttribute('class', "remove-button");
     btnDiv.appendChild(readButton);
+    readButton.addEventListener('click', e => {
+        markAsRead(e);
+    })
     btnDiv.appendChild(removeButton);
+    removeButton.addEventListener('click', e => {
+        removeCard(e)
+    });
     document.querySelector('.main-content').appendChild(div);
 };
 
@@ -114,25 +103,14 @@ function addCardToView() {
     clearFormValues();
 };
 
-{/* 
-        <div class="book-card">
-            <p id="cardTitle">Title: The hobbit</p>
-            <p id="cardAuthor">Author: JRR Tolken</p>
-            <p id="cardScore">Score: 10</p>
-            <p id="cardRead">Not read</p>
-            <div class="button-container">
-                <button>Read</button>
-                <button>Remove</button>
-            </div>
-        </div>
+function removeCard(e) {
+    targetedCard = e.currentTarget.parentNode.parentNode;
+    delete myLibrary[targetedCard.dataset.book]; //dataset.book return a number which corresponds to the book in myLibrary array
+    targetedCard.remove();
+}
 
+function markAsRead(e) {
+    targetedCard = e.currentTarget.parentNode.parentNode;
+    targetedCard.querySelector("#cardRead").innerText = "Read";
 
-
-<div class="book-card" data-book-card="" data-book="0">
-<ul class="card-content">
-    <li id="cardTitle">Title: The hobbit</li>
-    <li id="cardAuthor">Author: JRR Tolken</li>
-    <li id="cardScore">Score: 10</li>
-    <li id="cardRead">Not read</li>
-</ul>
-</div> */}
+};
