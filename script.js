@@ -5,7 +5,6 @@ const formContainer = document.getElementById('formContainer');
 const bookCards = document.querySelectorAll('[data-book-card]');
 const bookCardTemplate = document.getElementById('bookCardTemplate');
 
-
 let myLibrary = [
     {
         "title": "The hobbit",
@@ -34,19 +33,16 @@ function displayBooks() {
     }
 }
 
-function createBookCard(book, index) {
-    let newBook = bookCardTemplate.cloneNode(true);
-    newBook.removeAttribute('id');
-    newBook.setAttribute('data-book', index)
-    newBook.querySelector('#cardTitle').innerHTML = `Title: ${book['title']}`;
-    newBook.querySelector('#cardAuthor').innerHTML = `Author: ${book['author']}`;
-    newBook.querySelector('#cardScore').innerHTML = `Score: ${book['score']}`;
-    newBook.querySelector('#cardRead').innerHTML = book['hasRead'] ? "Read" : "Not read";
-    document.body.appendChild(newBook);
+function populateBookCard(index) {
+    let newCardText = document.querySelector(`[data-book='${index}']`);
+    newCardText.querySelector('#cardTitle').innerHTML = `Title: ${myLibrary[index]['title']}`;
+    newCardText.querySelector('#cardAuthor').innerHTML = `Author: ${myLibrary[index]['author']}`;
+    newCardText.querySelector('#cardScore').innerHTML = `Score: ${myLibrary[index]['score']}`;
+    newCardText.querySelector('#cardRead').innerHTML = myLibrary[index]['hasRead'] ? "Read" : "Not read";
 }
 
 
-function createNewBook(content) {
+function createnewCardText(content) {
     let book = new Book(content["title"], content["author"], content["has-read"], content["score"]);
     return book;
 }
@@ -59,11 +55,7 @@ addBookButton.addEventListener("click", function () {
     formContainer.classList.remove("hide");
 })
 
-// addToCollectionButton.addEventListener("click", function () {
-//     addBookToLibrary(createNewBook(getFormValues()));
-//     formContainer.classList.add("hide");
-//     clearFormValues();
-// })
+addToCollectionButton.addEventListener("click", addCardToView);
 
 function getFormValues() {
     var elements = document.getElementById("formContainer").elements;
@@ -112,7 +104,15 @@ function createCard(index) {
     btnDiv.appendChild(readButton);
     btnDiv.appendChild(removeButton);
     document.querySelector('.main-content').appendChild(div);
-}
+};
+
+function addCardToView() {
+    createCard(myLibrary.length);
+    addBookToLibrary(createnewCardText(getFormValues()));
+    populateBookCard(myLibrary.length - 1);
+    formContainer.classList.add("hide");
+    clearFormValues();
+};
 
 {/* 
         <div class="book-card">
