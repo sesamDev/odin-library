@@ -4,6 +4,7 @@
 }
 
 .header {
+    background-color: whitesmoke;
     border: 1px solid black;
     height: 4rem;
     display: flex;
@@ -11,9 +12,38 @@
 }
 
 .header>p {
-    margin-left: 2rem;
+    margin-left: 1rem;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.header>svg {
+    margin-left: 2rem;
+}
+
+.add-book {
+    padding: 12px 22px;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px #999;
+    margin: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-book:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.add-book:active {
+    background-color: rgb(220, 220, 220);
+    box-shadow: 0 4px #666;
+    transform: translateY(2px);
 }
 
 /* body {
