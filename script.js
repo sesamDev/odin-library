@@ -1,7 +1,7 @@
 const addBookButton = document.getElementById('addBook');
 const addToCollectionButton = document.getElementById('formButton');
 const formContainer = document.getElementById('formContainer');
-const viewLibraryButton = document.getElementById('viewLibraryButton');
+// const viewLibraryButton = document.getElementById('viewLibraryButton');
 const bookCards = document.querySelectorAll('[data-book-card]');
 const bookCardTemplate = document.getElementById('bookCardTemplate');
 
@@ -51,18 +51,19 @@ function createNewBook(content) {
     return book;
 }
 
-viewLibraryButton.addEventListener("click", function () {
-    displayBooks();
-})
+// viewLibraryButton.addEventListener("click", function () {
+//     displayBooks();
+// })
 addBookButton.addEventListener("click", function () {
+    console.log('click');
     formContainer.classList.remove("hide");
 })
 
-addToCollectionButton.addEventListener("click", function () {
-    addBookToLibrary(createNewBook(getFormValues()));
-    formContainer.classList.add("hide");
-    clearFormValues();
-})
+// addToCollectionButton.addEventListener("click", function () {
+//     addBookToLibrary(createNewBook(getFormValues()));
+//     formContainer.classList.add("hide");
+//     clearFormValues();
+// })
 
 function getFormValues() {
     var elements = document.getElementById("formContainer").elements;
@@ -84,29 +85,50 @@ function clearFormValues() {
 
 };
 
+//Setup new card elements
 function createCard(index) {
     const div = document.createElement('div');
     div.setAttribute('class', "book-card");
     div.setAttribute('data-book', index);
-    const ul = document.createElement('ul');
-    ul.setAttribute('class', 'card-content');
-    div.appendChild(ul);
-    const liTitle = document.createElement('li');
-    liTitle.setAttribute('id', 'cardTitle');
-    div.appendChild(liTitle);
-    const liAuthor = document.createElement('li');
-    liAuthor.setAttribute('id', 'cardAuthor');
-    div.appendChild(liAuthor);
-    const liScore = document.createElement('li');
-    liScore.setAttribute('id', 'cardScore');
-    div.appendChild(liScore);
-    const liRead = document.createElement('li');
-    liRead.setAttribute('id', 'cardRead');
-    div.appendChild(liRead);
-    document.body.appendChild(div);
+    const pTitle = document.createElement('p');
+    pTitle.setAttribute('id', 'cardTitle');
+    div.appendChild(pTitle);
+    const pAuthor = document.createElement('p');
+    pAuthor.setAttribute('id', 'cardAuthor');
+    div.appendChild(pAuthor);
+    const pScore = document.createElement('p');
+    pScore.setAttribute('id', 'cardScore');
+    div.appendChild(pScore);
+    const pRead = document.createElement('p');
+    pRead.setAttribute('id', 'cardRead');
+    div.appendChild(pRead);
+    const btnDiv = document.createElement('div');
+    btnDiv.setAttribute('class', 'button-container')
+    div.appendChild(btnDiv);
+    const readButton = document.createElement('button');
+    const removeButton = document.createElement('button')
+    readButton.innerText = "Read";
+    removeButton.innerText = "Remove";
+    btnDiv.appendChild(readButton);
+    btnDiv.appendChild(removeButton);
+    document.querySelector('.main-content').appendChild(div);
 }
 
-{/* <div class="book-card" data-book-card="" data-book="0">
+{/* 
+        <div class="book-card">
+            <p id="cardTitle">Title: The hobbit</p>
+            <p id="cardAuthor">Author: JRR Tolken</p>
+            <p id="cardScore">Score: 10</p>
+            <p id="cardRead">Not read</p>
+            <div class="button-container">
+                <button>Read</button>
+                <button>Remove</button>
+            </div>
+        </div>
+
+
+
+<div class="book-card" data-book-card="" data-book="0">
 <ul class="card-content">
     <li id="cardTitle">Title: The hobbit</li>
     <li id="cardAuthor">Author: JRR Tolken</li>

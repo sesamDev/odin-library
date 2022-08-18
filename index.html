@@ -17,12 +17,28 @@
         </svg>
         <p>Library</p>
     </div>
-    <button class="add-book">
+    <button class="add-book" id="addBook">
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
         </svg>
         <span>Add book</span>
     </button>
+    <form class="form-container hide" id="formContainer">
+        <div class="form-card">
+            <h3 class="card-title">Enter book details</h3>
+            <input type="text" name="title" placeholder="Title of book">
+            <input type="text" name="author" placeholder="Author of book">
+            <div class="has-read">
+                <label for="has-read">Read it?</label>
+                <input type="checkbox" name="has-read">
+            </div>
+            <div class="score">
+                <label for="score">Score</label>
+                <input type="number" name="score" min="1" max="10" step="1">
+            </div>
+            <button type="button" class="form-button" id="formButton">Add to collection</button>
+        </div>
+    </form>
     <div class="main-content">
         <div class="book-card">
             <p id="cardTitle">Title: The hobbit</p>
@@ -34,54 +50,8 @@
                 <button>Remove</button>
             </div>
         </div>
-        <div class="book-card">
-            <p>Title: The hobbit</p>
-            <p>Author: JRR Tolken</p>
-            <p>Score: 10</p>
-            <p>Not read</p>
-        </div>
-        <div class="book-card">
-            <ul>
-                <li id="cardTitle">Title: The hobbit</li>
-                <li id="cardAuthor">Author: JRR Tolken</li>
-                <li id="cardScore">Score: 10</li>
-                <li id="cardRead">Not read</li>
-            </ul>
-        </div>
-        <div class="book-card">
-            <ul>
-                <li id="cardTitle">Title: The hobbit</li>
-                <li id="cardAuthor">Author: JRR Tolken</li>
-                <li id="cardScore">Score: 10</li>
-                <li id="cardRead">Not read</li>
-            </ul>
-        </div>
-        <div class="book-card">
-            <ul>
-                <li id="cardTitle">Title: The hobbit</li>
-                <li id="cardAuthor">Author: JRR Tolken</li>
-                <li id="cardScore">Score: 10</li>
-                <li id="cardRead">Not read</li>
-            </ul>
-        </div>
-        <div class="book-card">
-            <ul>
-                <li id="cardTitle">Title: The hobbit</li>
-                <li id="cardAuthor">Author: JRR Tolken</li>
-                <li id="cardScore">Score: 10</li>
-                <li id="cardRead">Not read</li>
-            </ul>
-        </div>
-        <div class="book-card">
-            <ul>
-                <li id="cardTitle">Title: The hobbit</li>
-                <li id="cardAuthor">Author: JRR Tolken</li>
-                <li id="cardScore">Score: 10</li>
-                <li id="cardRead">Not read</li>
-            </ul>
-        </div>
-    </div>
-    <!-- <img src="/assets/rafael-m-CTNHIGI2WcU-unsplash.jpg" alt="Picture of Library">
+
+        <!-- <img src="/assets/rafael-m-CTNHIGI2WcU-unsplash.jpg" alt="Picture of Library">
     <div class="button-container">
         <button class="add-book" id="addBook">Add book</button>
         <button class="view-library" id="viewLibraryButton">View Library</button>
