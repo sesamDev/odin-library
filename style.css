@@ -1,202 +1,243 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-    position: relative;
+  position: relative;
 }
 
 .header {
-    background-color: whitesmoke;
-    border: 1px solid black;
-    height: 4rem;
-    display: flex;
-    align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  height: 4rem;
+  display: flex;
+  align-items: center;
 }
 
-.header>p {
-    margin-left: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
+.header > p {
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.header>svg {
-    margin-left: 2rem;
+.header > svg {
+  margin-left: 2rem;
 }
 
 .main-content {
-    position: absolute;
-    top: 70px;
-    display: grid;
-    margin: 5rem 1rem;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3rem;
-
+  position: absolute;
+  top: 70px;
+  display: grid;
+  margin: 5rem 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem;
 }
 
 .add-book {
-    position: absolute;
-    padding: 12px 22px;
-    font-size: 24px;
-    font-weight: normal;
-    cursor: pointer;
-    outline: none;
-    background-color: whitesmoke;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 6px #999;
-    margin: 1rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  padding: 12px 22px;
+  font-size: 24px;
+  font-weight: normal;
+  cursor: pointer;
+  outline: none;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+  margin: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-book:hover {
-    background-color: rgb(220, 220, 220);
+  background-color: rgb(220, 220, 220);
 }
 
 .add-book:active {
-    background-color: rgb(220, 220, 220);
-    box-shadow: 0 4px #666;
-    transform: translateY(2px);
+  background-color: rgb(220, 220, 220);
+  box-shadow: 0 4px #666;
+  transform: translateY(2px);
 }
 
 .book-card {
-    background-color: whitesmoke;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: .5rem;
-    height: 300px;
-    border: 2px solid rgb(220, 220, 220);
-    border-radius: .5rem;
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
+  background-color: whitesmoke;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  height: 300px;
+  border: 2px solid rgb(220, 220, 220);
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .book-card .button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.book-card .button-container>* {
-    padding: 12px 22px;
-    font-size: 1rem;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 6px #999;
-    margin: .5rem;
-    justify-self: center;
+.book-card .button-container > * {
+  padding: 12px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+  margin: 0.5rem;
+  justify-self: center;
 }
 
-.button-container>:first-child {
-    background-color: rgba(0, 199, 0, 0.6);
+.button-container > :first-child {
+  background-color: rgba(0, 199, 0, 0.6);
 }
 
-.button-container>:last-child {
-    background-color: rgba(179, 0, 0, 0.6);
+.button-container > :last-child {
+  background-color: rgba(179, 0, 0, 0.6);
 }
 
-.book-card .button-container>*:hover {
-    background-color: rgb(220, 220, 220);
+.book-card .button-container > *:hover {
+  background-color: rgb(220, 220, 220);
 }
 
-.book-card .button-container>*:active {
-    background-color: rgb(220, 220, 220);
-    box-shadow: 0 4px #666;
-    transform: translateY(2px);
+.book-card .button-container > *:active {
+  background-color: rgb(220, 220, 220);
+  box-shadow: 0 4px #666;
+  transform: translateY(2px);
 }
 
 .form-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    position: relative;
-    top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+  top: 20px;
 }
 
 form {
-    position: relative;
-    transform: scale(1);
-    opacity: 1;
-    transition-property: transform, opacity;
-    transition-duration: .3s;
-    transition-timing-function: linear;
+  position: relative;
+  transform: scale(1);
+  opacity: 1;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
 }
 
 form.hide {
-    transform: scale(0.5);
-    pointer-events: none;
-    opacity: 0;
-    transition-property: transform, opacity, display;
-    transition-duration: .3s;
-    transition-timing-function: linear;
-
+  transform: scale(0.5);
+  pointer-events: none;
+  opacity: 0;
+  transition-property: transform, opacity, display;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
 }
 
 .form-card {
-    background-color: whitesmoke;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: .5rem;
-    height: 450px;
-    width: 400px;
-    border: 2px solid rgb(220, 220, 220);
-    border-radius: .5rem;
-    display: grid;
-    justify-items: center;
-    padding: 1rem 0;
-    font-size: 1.5rem;
+  background-color: whitesmoke;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  height: 450px;
+  width: 400px;
+  border: 2px solid rgb(220, 220, 220);
+  border-radius: 0.5rem;
+  display: grid;
+  justify-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
 }
 
 .has-read,
 .score {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.has-read>*,
-.score>* {
-    margin: .5rem;
+.has-read > *,
+.score > * {
+  margin: 0.5rem;
 }
 
-input[type=text] {
-    border: none;
-    border-radius: 1.5rem;
-    width: 80%;
-    margin: .5rem 0;
-    padding-left: .5rem;
+input[type="text"] {
+  border: none;
+  border-radius: 1.5rem;
+  width: 80%;
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
 }
 
-input[type=checkbox] {
-    height: 1.5rem;
-    width: 1.5rem;
+input[type="checkbox"] {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
-.form-card>button {
-    background-color: rgba(0, 199, 0, 0.6);
-    padding: 12px 22px;
-    font-size: 1rem;
-    height: 2.7rem;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 6px #999;
-    margin: .5rem;
-    justify-self: center;
+.form-card > button {
+  background-color: rgba(0, 199, 0, 0.6);
+  padding: 12px 22px;
+  font-size: 1rem;
+  height: 2.7rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+  margin: 0.5rem;
+  justify-self: center;
 }
 
-.form-card>button:hover {
-    background-color: rgb(220, 220, 220);
+.form-card > button:hover {
+  background-color: rgb(220, 220, 220);
 }
 
-.form-card>button:active {
-    background-color: rgb(220, 220, 220);
-    box-shadow: 0 4px #666;
-    transform: translateY(2px);
+.form-card > button:active {
+  background-color: rgb(220, 220, 220);
+  box-shadow: 0 4px #666;
+  transform: translateY(2px);
+}
+.error-msg {
+  color: white;
+  background-color: #900;
+  width: 200px;
+  height: 40px;
+  font-size: 1.2rem;
+  border: 1px solid #900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.error-msg.hide {
+  display: none;
+}
+
+/* This is our style for the invalid fields */
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* This is the style of our error messages */
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }

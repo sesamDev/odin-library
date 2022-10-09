@@ -8,6 +8,76 @@ class Book {
     this.score = score;
   }
 }
+
+class FormValidation {
+  static form = document.querySelector("form");
+  static title = document.getElementById("inputTitle");
+  static author = document.getElementById("inputAuthor");
+  static score = document.getElementById("inputScore");
+
+  static applyValidation() {
+    this.initValidationHandlers();
+  }
+
+  static initValidationHandlers() {
+    this.handleAuthorValidation();
+    this.handleTitleValidation();
+    this.handleScoreValidation();
+    this.errorMessage();
+  }
+  static handleTitleValidation() {
+    this.title.addEventListener("input", () => {
+      if (!this.title.validity.valid) {
+        this.title.setCustomValidity("Title needs to be entered.");
+        this.title.reportValidity();
+      }
+    });
+  }
+
+  static handleAuthorValidation() {
+    this.author.addEventListener("input", () => {
+      if (!this.author.validity.valid) {
+        this.author.setCustomValidity("Author needs to be entered.");
+        this.author.reportValidity();
+      }
+    });
+  }
+
+  static handleScoreValidation() {
+    this.score.addEventListener("input", () => {
+      if (!this.score.validity.valid) {
+        this.score.setCustomValidity("Score needs to be entered.");
+        this.score.reportValidity();
+      }
+    });
+  }
+
+  static formValid() {
+    return this.title.validity.valid;
+  }
+
+  static errorMessage() {
+    const errorMsg = document.createElement("p");
+    errorMsg.textContent = "Missing information";
+    errorMsg.classList.add("error-msg");
+    errorMsg.classList.add("hide");
+    document.querySelector(".form-card").appendChild(errorMsg);
+  }
+
+  static showError() {
+    const errorMsg = document.querySelector(".error-msg");
+    console.log(errorMsg);
+    errorMsg.classList.remove("hide");
+  }
+
+  static hideError() {
+    const errorMsg = document.querySelector(".error-msg");
+    console.log(errorMsg);
+
+    errorMsg.classList.add("hide");
+  }
+}
+
 class Library {
   static collection = [];
   //Document queries
@@ -16,6 +86,7 @@ class Library {
   static loadLibrary() {
     this.initAllButtons();
     console.log(bookCards);
+    FormValidation.applyValidation();
   }
 
   static toggleForm() {
@@ -33,7 +104,13 @@ class Library {
   static initAddToCollectionButton() {
     const addToCollectionButton = document.getElementById("formButton");
     addToCollectionButton.addEventListener("click", () => {
-      this.addCardToView();
+      if (FormValidation.formValid()) {
+        this.addCardToView();
+        FormValidation.hideError();
+      } else {
+        FormValidation.showError();
+        console.log("Form not valid");
+      }
     });
   }
 
